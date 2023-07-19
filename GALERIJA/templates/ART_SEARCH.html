@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} SEARCH Page {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+{% if searched %}
+
+<div class="container mt-3 mb-3">
+
+    <div class="row">
+        {% for painting in paintingslist %}
+        <div class="col-lg-4 my-4">
+            <div class="card shadow" style="width: 20rem; height: 30rem;">
+                <img src="/media/{{painting.image}}" class="card-img-top" alt="..." width = '200px' height="250px">
+                <div class="card-body">
+                  <h5 class="card-title">{{painting.title}} <br><small>by {{painting.author}}</small></h5>
+                  <p class="card-text">{{painting.content| truncatechars:210}}</p>
+                 
+                  <span><a href="/painting/{{painting.id}}" class="btn btn-outline-warning">Read More {% if user.is_superuser %}<a href="/delete_paintings/{{painting.id}}/" class="btn btn-outline-danger mx-2">Delete Paintings</a>{% endif %}</a></span>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<h1>You forgot to search</h1>
+{% endif %}
+{% endblock %}

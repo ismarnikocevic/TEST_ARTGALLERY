@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Blogs {% endblock %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block css %}
+
+{% endblock %}
+{% block body %}
+<div class="container mt-5 mb-3">
+  <small><a href="/add_blogs{{post.pk}}/" class="btn btn-primary">Add Blog Post</a></small>
+
+
+    <div class="row">
+
+        {% for post in posts %}
+        <div class="col-lg-4 my-3">
+          
+            <div class="card shadow" style="width: 19rem; height: 30rem;">
+                <img src="/media/{{post.image}}" class="card-img-top" alt="img" height="250px">
+              <div class="card-body">
+                  <h5 class="card-title">{{post.title}} <br><small>by {{post.author}}</small></h5>
+                  <p class="card-text">{{post.content| truncatechars:110}}</p>
+                      
+                  <a href="/blog/{{post.id}}" class="btn btn-outline-primary">Read More 
+                    {% if user.is_superuser %}<a href="/delete_blog_post/{{post.id}}/" 
+                    class="btn btn-outline-danger">Delete Blog</a>{% endif %}</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}
+{% block js %} 
+
+{% endblock %}

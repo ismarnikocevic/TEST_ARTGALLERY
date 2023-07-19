@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+{% block add_blogs_active %} active {% endblock add_blogs_active %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3">
+                <div class="card-header justify-content-center">
+<form action="/add_blogs/" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+<div class="container mt-4">
+{{ form.as_p }}
+<button class="btn btn-primary">Add Blog</button>
+</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert('Your Blog is added successfully.');
+    document.location = '/blogslist';
+    {% endif %}
+</script>
+{% endblock %}
+
+

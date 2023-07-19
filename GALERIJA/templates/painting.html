@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Paintings {% endblock %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block css %}
+
+{% endblock %}
+{% block body %}
+<div class="container mt-5 mb-3">
+  <small><a href="/add_paintings{{post.pk}}/" class="btn btn-primary">Add Paintings</a></small><br>
+    </div>
+  <div class="container mt-5">
+  
+<form class="d-flex" method="POST" action="/ART_SEARCH/"> {% csrf_token %}
+  <input class="form-control me-2" type="ART_SEARCH" placeholder="search with title" name="searched" id="searched" aria-label="ART_search">
+  <button href="/ART_SEARCH/" class="btn btn-outline-success" type="submit">Search</button>
+</form>
+</div>
+
+
+<div class="container my-2">
+  
+    <div class="row">
+      
+        {% for post in posts %}
+        <div class="col-lg-4 my-3">
+            <div class="card shadow" style="width: 19rem; height: 28rem;">
+                <img src="/media/{{post.image}}" class="card-img-top" alt="..." height="200px">
+                <div class="card-body">
+                  <h5 class="card-title">{{post.title}} <br><small>by {{post.author}}</small></h5>
+                  {{post.dateTime}}
+                  <p class="card-text">{{painting.dateTime}}</p>
+                  <p class="card-text">{{post.content| truncatechars:210}}</p>
+                  <a href="/painting/{{post.id}}" class="btn btn-outline-primary btn-sm">Read More 
+                    {% if user.is_superuser %}<a href="/delete_paintings/{{post.id}}/" 
+                    class="btn btn-outline-danger btn-sm ">Delete Painting</a>{% endif %}</a>
+                </div>
+                
+              </div>
+       
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block js %} 
+
+{% endblock %}

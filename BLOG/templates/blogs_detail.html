@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Blogs {% endblock %}
+
+{% block css %}
+.edit{
+float: right;
+}
+{% endblock %}
+{% block body %}
+
+<div class="container w-75 my-4">
+      <h2 class="blog-post-title">{{post.title}}</h2>
+      <br>
+      <div class="media">
+            {% if post.author.profile.image %}
+            <img class="mr-3 rounded-circle" src="{{post.author.profile.image.url}}" width="50px" height="50px"
+                  alt="image">
+            {% endif %}
+            <div class="media-body">
+                  <h5 class="mt-0"><a "/user_profile/{{post.author.id}}/">{{post.author}}
+                        
+                              {% if user.is_authenticated %}
+                              {% if user.id == post.author.id %}
+                              <small><a href="/edit_blog_post/{{post.pk}}/" class="btn btn-outline-warning">Edit Blog</a></small>
+                              <small><a href="/delete_blog_post/{{post.pk}}/" class="btn btn-outline-danger">Delete Blog</a></small>
+                              
+                              
+                              {% endif %}
+                              {% endif %}
+                               
+                        </a></h5>
+                  {{post.dateTime}}
+                 
+            </div>
+      </div>
+      <br>
+      
+
+	<figure class="figure">
+            <img src="/media/{{post.image}}" alt="" height="250px" width="500px" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                  <figcaption class="figure-caption text-right"></figcaption>
+              </figure>
+
+              <p >{{post.content}}</p>  
+      <br>
+      
+            </div>
+      </div>
+
+      {% endblock %}

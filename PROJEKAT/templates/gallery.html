@@ -1,0 +1,74 @@
+
+{%extends 'base.html'%}
+
+
+{% block title %} Gallery {% endblock %}
+
+
+{%load static %}
+
+
+{%block content%}
+<div class = 'container'><br><br>
+<a href="https://www.facebook.com/"><img src="{% static '/images/F.PNG' %}"alt="Img"><a class="active" href="#album4"></a>
+
+<a href="https://www.instagram.com/"><img src="{% static '/images/YY.PNG' %}"alt="Img"><a class="active" href="#album4"></a>
+
+<a href="https://twitter.com/home//"><img src="{% static '/images/TWTT.PNG' %}"alt="Img"><a class="active" href="#album4"></a>
+
+
+  </div>
+
+
+
+
+  <div class = 'container'>
+
+  <figure class="figure">
+  
+   <div class="row justify-content-center">
+              <div class="col-lg-12">
+                  <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3">
+                      <div class="card-header justify-content-center">
+  
+  
+  
+    <a href="/photo1"><img src="{% static '/images/FF1.jpg' %}"alt="Img"></a>
+                    
+    <a href="/photo2"><img src="{% static '/images/FF2.jpg' %}"alt="Img"></a>
+                    
+    <a href="/photo3"><img src="{% static '/images/FF3.jpg' %}"alt="Img"></a>
+                    
+    <a href="/photo4"><img src="{% static 'images/FF4.jpg' %}"alt="Img"></a>
+  
+    <a href="/photo5"><img src="{% static '/images/FF5.jpg' %}"alt="Img"></a>		
+                    
+    <a href="/photo6"><img src="{% static '/images/FF6.jpg' %}"alt="Img"></a>
+                    
+    <a href="/photo7"><img src="{% static '/images/FF7.jpg' %}"alt="Img"></a>
+                    
+    <a href="/photo8"><img src="{% static '/images/FF8.jpg' %}"alt=""></a>
+       
+    <a href="/photo9"><img src="{% static '/images/FF9.jpg' %}"alt="Img"></a>		
+                        
+    <a href="/photo10"><img src="{% static '/images/FF10.jpg' %}"alt="Img"></a>
+                        
+    <a href="/photo11"><img src="{% static '/images/FF11.jpg' %}"alt="Img"></a>
+                        
+    <a href="/photo12"><img src="{% static '/images/FF12.jpg' %}"alt="img"></a>
+        
+   <a href="/photo13"><img src="{% static '/images/FF13.jpg' %}"alt="Img"></a>		
+                            
+    <a href="/photo14"><img src="{% static '/images/FF14.jpg' %}"alt="Img"></a>
+                            
+    <a href="/photo15"><img src="{% static '/images/FF15.jpg' %}"alt="Img"></a>
+                            
+  
+           
+  
+    </div>
+ 
+  
+  
+
+{% endblock %}

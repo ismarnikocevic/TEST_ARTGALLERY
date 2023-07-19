@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Paintings {% endblock %}
+{% block add_paintings_active %} active {% endblock add_paintings_active %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3">
+                <div class="card-header justify-content-center">
+<form action="/add_paintings/" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+<div class="container mt-4">
+{{ form.as_p }}
+<button class="btn btn-primary">Add Painting</button>
+</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert('Your Painting is added successfully.');
+    document.location = '/paintingslist';
+    {% endif %}
+</script>
+{% endblock %}
+
+
